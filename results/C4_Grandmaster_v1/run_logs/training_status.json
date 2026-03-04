@@ -1,0 +1,48 @@
+{
+    "Connect4": {
+        "elo": 1408.6991724887714,
+        "checkpoints": [
+            {
+                "steps": 61175,
+                "file_path": "results\\C4_Grandmaster_v1\\Connect4\\Connect4-61175.onnx",
+                "reward": -0.04236354455826389,
+                "creation_time": 1772661395.0673409,
+                "auxillary_file_paths": [
+                    "results\\C4_Grandmaster_v1\\Connect4\\Connect4-61175.pt"
+                ]
+            },
+            {
+                "steps": 228584,
+                "file_path": "results\\C4_Grandmaster_v1\\Connect4\\Connect4-228584.onnx",
+                "reward": 0.010245081632351197,
+                "creation_time": 1772661713.64895,
+                "auxillary_file_paths": [
+                    "results\\C4_Grandmaster_v1\\Connect4\\Connect4-228584.pt"
+                ]
+            },
+            {
+                "steps": 463207,
+                "file_path": "results\\C4_Grandmaster_v1\\Connect4\\Connect4-463207.onnx",
+                "reward": 0.025448278277769857,
+                "creation_time": 1772662013.5119345,
+                "auxillary_file_paths": [
+                    "results\\C4_Grandmaster_v1\\Connect4\\Connect4-463207.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 463207,
+            "file_path": "results\\C4_Grandmaster_v1\\Connect4.onnx",
+            "reward": 0.025448278277769857,
+            "creation_time": 1772662013.5119345,
+            "auxillary_file_paths": [
+                "results\\C4_Grandmaster_v1\\Connect4\\Connect4-463207.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.2.1+cpu"
+    }
+}

@@ -10,31 +10,51 @@ public class Connect4Agent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
     {
+        // 1. Progress Observation (1 float)
+        sensor.AddObservation(board.GetStepCount() / 42f);
+
+        // 2. Grid Observations (42 floats)
         for (int c = 0; c < 7; c++)
+        {
             for (int r = 0; r < 6; r++)
             {
                 int cell = board.GetCell(c, r);
                 if (cell == 0) sensor.AddObservation(0f);
                 else sensor.AddObservation(cell == playerID ? 1f : -1f);
             }
+        }
+        // Total = 43. Ensure Inspector matches this!
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
         int col = actions.DiscreteActions[0];
 
-        // If Heuristic returned -1 (no key pressed), do nothing.
-        // The BoardManager will handle re-requesting once a key is hit.
+        if (col == -1) // Heuristic wait
+        {
+            RequestDecision();
+            return;
+        }
+
         if (col >= 0 && col < 7)
         {
-            Debug.Log($"[Agent {playerID}] Executing Move in Col {col}");
-            board.TryMove(col, playerID);
+            bool success = board.TryMove(col, playerID);
+            
+            if (!success)
+            {
+                AddReward(-0.01f); // Tiny penalty for invalid move
+                RequestDecision();
+            }
+            else
+            {
+                // Efficiency reward: encourage winning in fewer moves
+                AddReward(-0.002f); 
+            }
         }
     }
 
     public override void WriteDiscreteActionMask(IDiscreteActionMask collectMask)
     {
-        // Mask full columns
         for (int c = 0; c < 7; c++)
         {
             if (board.IsColumnFull(c)) collectMask.SetActionEnabled(0, c, false);
@@ -44,8 +64,6 @@ public class Connect4Agent : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var discreteActions = actionsOut.DiscreteActions;
-        // Fetch the keypress stored in the BoardManager
-        int input = board.GetAndClearHumanInput();
-        discreteActions[0] = input;
+        discreteActions[0] = board.GetAndClearHumanInput();
     }
 }

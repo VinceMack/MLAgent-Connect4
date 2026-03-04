@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.ML-Agents::Unity.MLAgents.Policies.BehaviorParameters
   m_BrainParameters:
-    VectorObservationSize: 42
+    VectorObservationSize: 43
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -263,9 +263,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Connect4BoardManager
   redPrefab: {fileID: 1588433531759980696, guid: cd7b0134bf0afe0468d91644cc83bc5c, type: 3}
   yellowPrefab: {fileID: 9171285984521336641, guid: b2eafa5cd2b69c6478906dc4ab533fe4, type: 3}
+  pieceContainer: {fileID: 658108615}
   agentRed: {fileID: 196536020}
   agentYellow: {fileID: 1948340903}
-  pieceContainer: {fileID: 658108615}
 --- !u!4 &1190791116
 Transform:
   m_ObjectHideFlags: 0
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.ML-Agents::Unity.MLAgents.Policies.BehaviorParameters
   m_BrainParameters:
-    VectorObservationSize: 42
+    VectorObservationSize: 43
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0
@@ -357,9 +357,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 22b51ed45777b604a931783b33b36d27, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 1
+  m_BehaviorType: 2
   m_BehaviorName: Connect4
   TeamId: 1
   m_UseChildSensors: 1
